@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 const postSlice = createSlice({
   name: 'posts',
@@ -8,26 +8,44 @@ const postSlice = createSlice({
   ],
   reducers: {
 
-    postAdded(state, action) {
-      state.push(action.payload)
+    // postAdded :  (state, action)=> {
+    //   state.push(action.payload)
+    // }
+
+    // postAdded: {
+    //   reducer: (state, action) => { state.push(action.payload) },
+    //   prepare: (title, content) => {
+    //     return {
+    //       payload: {
+    //         id: nanoid(),
+    //         title,
+    //         content
+    //       }
+    //     }
+    //   }
+    // },
+
+    postAdded: {
+      reducer: (state, action) => { state.push(action.payload) },
+      prepare: (title, content) => {
+        return {
+          payload: {
+            id: nanoid(),
+            title,
+            content
+          }
+        }
+      }
     }
+
+
+
+
   }
 });
 
 
-// postAdded: {
-//   reducer(state, action){ state.push(action.payload) },
-//   prepare(title, content){
-//     return {
-//       payload: {
-//         id: nanoid(),
-//         title,
-//         content
-//       }
-//     }
 
-//   }
-// }
 
 
 

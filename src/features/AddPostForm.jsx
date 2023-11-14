@@ -4,27 +4,28 @@ import { postAdded } from './postSlice';
 import { nanoid } from '@reduxjs/toolkit';
 
 const AddPostForm = () => {
-    const [title, setTitle] = useState(null);
+    const [title, setTitle] = useState('');
     const onTitleChange = e => setTitle(e.target.value)
-    const [content, setContent] = useState(null);
+    const [content, setContent] = useState('');
     const onContentChange = e => setContent(e.target.value)
     console.log(title, content);
 
     const dispatch = useDispatch();
+
     const formSubmit = (e) => {
         e.preventDefault();
         if (title && content) {
             dispatch(
-                postAdded({
-                    id: nanoid(),
+                postAdded(
+                  
                     title,
                     content
-                })
+                
+                )
             )
             setTitle('')
             setContent('')
         }
-
     }
 
     return (

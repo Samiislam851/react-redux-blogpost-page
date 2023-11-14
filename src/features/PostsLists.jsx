@@ -9,7 +9,7 @@ const PostsLists = () => {
             <h3>
                 {post.title}
             </h3>
-            <p>{post.content.substring(0, 100)}</p>
+            <p>{post.content}</p>
 
         </article>
     )
