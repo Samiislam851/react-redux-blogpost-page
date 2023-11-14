@@ -8,13 +8,29 @@ const postSlice = createSlice({
   ],
   reducers: {
 
-    postAdded  (state, action) {
-state.push(action.payload)
+    postAdded(state, action) {
+      state.push(action.payload)
     }
   }
 });
 
 
-export const { selectAllPosts } = postSlice.actions;
+// postAdded: {
+//   reducer(state, action){ state.push(action.payload) },
+//   prepare(title, content){
+//     return {
+//       payload: {
+//         id: nanoid(),
+//         title,
+//         content
+//       }
+//     }
+
+//   }
+// }
+
+
+
+export const { postAdded } = postSlice.actions;
 
 export default postSlice.reducer;
